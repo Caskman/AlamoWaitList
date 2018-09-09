@@ -1,0 +1,20 @@
+{
+  "name": "alamo-react",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.9.3",
+    "react-scripts": "0.9.5"
+  },
+  "scripts": {
+    "start": "node-sass public/styles.scss public/styles.css && react-scripts start",
+    "watch-css": "node-sass -w public -o public",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
