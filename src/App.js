@@ -1,9 +1,45 @@
 import React, { Component } from 'react'
+import classNames from 'classnames'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
+import TextInput from "./TextInput"
+import ComboBox from "./ComboBox"
 
 class App extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            pristine: true,
+            firstName: false,
+            lastName: false,
+            email: false,
+            localAlamo: false,
+            mobileType: false,
+            submitted: false,
+        }
+    }
+    attemptSubmit = () => {
+        const s = this.state
+        const submitted = s.firstName && s.lastName && s.email && s.localAlamo && s.mobileType
+        this.setState({
+            pristine: false,
+            submitted,
+        })
+        if (submitted) {
+            toast("Yay! You're on the waitlist!")
+        }
+    }
+    validationChange = e => {
+        const newState = {}
+        newState[e.key] = e.value
+        this.setState(newState)
+    }
     render() {
+        const { pristine, submitted } = this.state
         return (
             <div className="alamo-app">
+                <ToastContainer position="top-right"/>
                 <div className="first-bg">
                     <div className="header">
                         <div className="header-left">
@@ -53,28 +89,51 @@ class App extends Component {
                                 <img src="img/page-1-copy-5.svg"/>
                             </div>
                             <div className="signup-content">
-                                <div className="form-element">
-                                    <label htmlFor="first-name">FIRST NAME</label>
-                                    <input type="text" id="first-name"/>
-                                </div>
-                                <div className="form-element">
-                                    <label htmlFor="last-name">LAST NAME</label>
-                                    <input type="text" id="last-name"/>
-                                </div>
-                                <div className="form-element">
-                                    <label htmlFor="email">VICTORY EMAIL ADDRESS</label>
-                                    <input type="text" id="email"/>
-                                </div>
-                                <div className="form-element">
-                                    <label htmlFor="location">YOUR LOCAL ALAMO</label>
-                                    <input type="text" id="location"/>
-                                </div>
-                                <div className="form-element">
-                                    <label htmlFor="phone-type">MOBILE PHONE TYPE</label>
-                                    <input type="text" id="phone-type"/>
-                                </div>
-                                <div className="form-element">
-                                    <button>
+                                <TextInput
+                                    pristine={pristine}
+                                    valKey="firstName"
+                                    onValidationChange={e => this.validationChange(e)}>
+                                    FIRST NAME
+                                </TextInput>
+                                <TextInput
+                                    pristine={pristine}
+                                    valKey="lastName"
+                                    onValidationChange={e => this.validationChange(e)}>
+                                    LAST NAME
+                                </TextInput>
+                                <TextInput
+                                    pristine={pristine}
+                                    valKey="email"
+                                    onValidationChange={e => this.validationChange(e)}>
+                                    VICTORY EMAIL ADDRESS
+                                </TextInput>
+                                <ComboBox 
+                                    label="YOUR LOCAL ALAMO"
+                                    pristine={pristine}
+                                    valKey="localAlamo"
+                                    onValidationChange={e => this.validationChange(e)}>
+
+                                    <option value="empty">Select your Alamo</option>
+                                    <option>South Lamar</option>
+                                    <option>Mueller</option>
+                                    <option>Ritz</option>
+                                    <option>Village</option>
+                                    <option>Slaughter Lane</option>
+                                    <option>Lakeline</option>
+                                </ComboBox>
+                                <ComboBox 
+                                    label="MOBILE PHONE TYPE"
+                                    pristine={pristine}
+                                    valKey="mobileType"
+                                    onValidationChange={e => this.validationChange(e)}>
+
+                                    <option value="empty">Select mobile phone type</option>
+                                    <option>Apple iPhone</option>
+                                    <option>Samsung Galaxy</option>
+                                    <option>Google Pixel</option>
+                                </ComboBox>
+                                <div className="form-section submit-container">
+                                    <button onClick={() => this.attemptSubmit()}>
                                         JOIN WAITLIST
                                     </button>
                                 </div>

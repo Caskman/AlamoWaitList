@@ -22,18 +22,14 @@
     color: #ffffff;
 }
 
-$white-bg-color: #fafafa;
-$orange-1: #f0b323;
-$error-color: red;
-
-$page-side-spacing: 8rem;
-$page-top-spacing: 2rem;
-$extra-sidespacing: 8rem;
-
 a {
     text-decoration: none;
     color: inherit;
 }
+
+$page-side-spacing: 8rem;
+$page-top-spacing: 2rem;
+$extra-sidespacing: 8rem;
 
 .alamo-app {
     @include text-default;
@@ -59,14 +55,14 @@ a {
     position: relative;
     z-index: 1;
     background-image: linear-gradient(120deg, #ff009d, #f5b324);
-    @include angled-bottom($white-bg-color, -1);
+    @include angled-bottom(#fafafa, -1);
     padding: $page-top-spacing $page-side-spacing 0 $page-side-spacing;
 }
 
 .second-bg {
     position: relative;
     z-index: 5;
-    background-color: $white-bg-color;
+    background-color: #fafafa;
     padding: 0 ($page-side-spacing + $extra-sidespacing);
     @include angled-bottom(#000000, 6)
 }
@@ -110,7 +106,7 @@ a {
 
         .small-section {
             @include text-heading;
-            color: $orange-1;
+            color: #f0b323;
         }
         .large-section {
             @include text-dark-background;
@@ -187,9 +183,9 @@ a {
                 @include form-element;
             }
             @mixin error-styles {
-                border-color: $error-color;
+                border-color: red;
                 &:focus {
-                    outline-color: $error-color;
+                    outline-color: red;
                 }
             }
             &.error {
@@ -220,7 +216,7 @@ a {
             button {
                 position: relative;
                 @include text-default;
-                background-color: $orange-1;
+                background-color: #f0b323;
                 font-weight: bold;
                 letter-spacing: 1px;
                 color: #141310;
