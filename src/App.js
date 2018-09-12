@@ -16,7 +16,6 @@ class App extends Component {
             email: false,
             localAlamo: false,
             mobileType: false,
-            submitted: false,
         }
     }
     attemptSubmit = () => {
@@ -24,7 +23,6 @@ class App extends Component {
         const submitted = s.firstName && s.lastName && s.email && s.localAlamo && s.mobileType
         this.setState({
             pristine: false,
-            submitted,
         })
         if (submitted) {
             toast("Yay! You're on the waitlist!")
@@ -36,16 +34,16 @@ class App extends Component {
         this.setState(newState)
     }
     render() {
-        const { pristine, submitted } = this.state
+        const { pristine } = this.state
         return (
-            <div className="alamo-app">
+            <div className="alamo-app container-fluid p-0">
                 <ToastContainer position="top-right"/>
-                <div className="first-bg container-fluid pt-3 pb-5">
+                <div className="first-bg container-fluid pt-3">
                     <div className="row">
                         <div className="col"></div>
-                        <div className="col-10">
+                        <div className="col-md-10 col-12">
                         <div className="header d-flex flex-column flex-md-row pb-3 mb-5 align-items-center">
-                            <img className="mr-md-auto" src="img/two-color-reversed.svg" width="119px"/>
+                            <img className="header-brand-img mr-md-auto mb-md-0 mb-3" src="img/two-color-reversed.svg"/>
                             <div>
                                 <a className="p-2 text-light" href="#sign-up">Join</a>
                                 <a className="p-2 text-light" href="#faq">FAQ</a>
@@ -54,7 +52,7 @@ class App extends Component {
                         </div>
                         <div className="greeting-section row">
                             <div className="col"></div>
-                            <div className="col-10">
+                            <div className="col-md-10 col-12">
                                 <div className="big-greeting mb-5">
                                     <div className="small-section text-center">
                                         WELCOME TO THE
@@ -64,8 +62,8 @@ class App extends Component {
                                     </div>
                                 </div>
                                 <div className="description row">
-                                    <div className="description-image col">
-                                        <img src="img/card.svg" width="410px"/>
+                                    <div className="description-image col text-center mb-3 mb-md-0">
+                                        <img className="hero-img" src="img/card.svg"/>
                                     </div>
                                     <div className="description-text col text-light">
                                         <p>
@@ -84,13 +82,13 @@ class App extends Component {
                         <div className="col"></div>
                     </div>
                 </div>
-                <div className="second-bg container-fluid pb-5" id="sign-up">
+                <div className="second-bg container-fluid pt-3" id="sign-up">
                     <div className="signup-section row">
                         <div className="col"></div>
-                        <div className="col-5">
+                        <div className="col-md-5 col-sm-7 col-12">
                             <div className="signup-wrapper">
                                 <div className="section-img">
-                                    <img src="img/page-1-copy-5.svg"/>
+                                    <img className="signup-img" src="img/page-1-copy-5.svg"/>
                                 </div>
                                 <div className="signup-content p-4">
                                     <TextInput
@@ -137,7 +135,7 @@ class App extends Component {
                                         <option>Google Pixel</option>
                                     </ComboBox>
                                     <div className="form-section submit-container text-center">
-                                        <button onClick={() => this.attemptSubmit()}>
+                                        <button className="px-md-3 py-md-2 px-5 py-3" onClick={() => this.attemptSubmit()}>
                                             JOIN WAITLIST
                                         </button>
                                     </div>
@@ -150,10 +148,10 @@ class App extends Component {
                 <div className="third-bg container-fluid" id="faq">
                     <div className="faq-section row">
                         <div className="col"></div>
-                        <div className="col-5">
+                        <div className="col-md-5 col-10">
                             <div className="faq-content text-light">
                                 <div className="section-img">
-                                    <img src="img/page-1-copy-4.svg"/>
+                                    <img className="faq-img" src="img/page-1-copy-4.svg"/>
                                 </div>
                                 <div className="faq-block">
                                     <div className="block-header">

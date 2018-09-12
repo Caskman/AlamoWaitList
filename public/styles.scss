@@ -47,6 +47,87 @@ $page-side-spacing: 8rem;
 $page-top-spacing: 2rem;
 $extra-sidespacing: 8rem;
 
+$xxs-width: 0px;
+$xxs-ratio: 25/60;
+
+$xs-width: 320px;
+$xs-ratio: .5;
+
+$sm-width: 576px;
+$sm-ratio: 3/4;
+
+$md-width: 768px;
+$md-ratio: 1;
+
+$header-brand-img-width: 119px;
+$hero-img-width: 410px;
+$signup-img-width: 146px;
+$faq-img-width: 81px;
+
+@media (min-width: $xxs-width) {
+    .header-brand-img {
+        width: $header-brand-img-width * $sm-ratio;
+    }
+    .hero-img {
+        width: $hero-img-width * $xxs-ratio;
+    }
+    .signup-img {
+        display: none;
+        width: $signup-img-width * $xxs-ratio;
+    }
+    .faq-img {
+        width: $faq-img-width * $xxs-ratio;
+    }
+}
+
+@media (min-width: $xs-width) {
+    .header-brand-img {
+        width: $header-brand-img-width * $md-ratio;
+    }
+    .hero-img {
+        width: $hero-img-width * $xs-ratio;
+    }
+    .signup-img {
+        display: none;
+        width: $signup-img-width * $xs-ratio;
+    }
+    .faq-img {
+        width: $faq-img-width * $xs-ratio;
+    }
+}
+
+@media (min-width: $sm-width) {
+    .header-brand-img {
+        width: $header-brand-img-width * $sm-ratio;
+    }
+    .hero-img {
+        width: $hero-img-width * $sm-ratio;
+    }
+    .signup-img {
+        display: block;
+        width: $signup-img-width * $sm-ratio;
+    }
+    .faq-img {
+        width: $faq-img-width * $sm-ratio;
+    }
+}
+
+@media (min-width: $md-width) {
+    .header-brand-img {
+        width: $header-brand-img-width * $md-ratio;
+    }
+    .hero-img {
+        width: $hero-img-width * $md-ratio;
+    }
+    .signup-img {
+        display: block;
+        width: $signup-img-width * $md-ratio;
+    }
+    .faq-img {
+        width: $faq-img-width * $md-ratio;
+    }
+}
+
 .alamo-app {
     @include text-default;
 }
@@ -72,13 +153,17 @@ $extra-sidespacing: 8rem;
     z-index: 1;
     background-image: linear-gradient(120deg, #ff009d, #f5b324);
     @include angled-bottom($white-bg-color, -1);
+
+    padding-bottom: 5rem;
 }
 
 .second-bg {
     position: relative;
     z-index: 5;
     background-color: $white-bg-color;
-    @include angled-bottom(#000000, 6)
+    @include angled-bottom(#000000, 6);
+
+    padding-bottom: 7rem;
 }
 
 .third-bg {
@@ -100,6 +185,16 @@ $extra-sidespacing: 8rem;
         .large-section {
             @include text-heading;
             font-size: 3rem;
+        }
+    }
+    .description {
+        .description-text {
+            text-align: center;
+        }
+        @media (min-width: $md-width) {
+            .description-text {
+                text-align: left;
+            }
         }
     }
 }
@@ -180,7 +275,6 @@ $extra-sidespacing: 8rem;
                 color: #141310;
                 border-radius: 3px;
                 border: none;
-                padding: .5rem 1.5rem;
                 cursor: pointer;
             }
         }
