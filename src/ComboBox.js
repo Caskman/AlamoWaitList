@@ -24,10 +24,10 @@ class ComboBox extends Component {
         const { children, pristine, valKey, label } = this.props
         const { valid } = this.state
         return (
-            <div className={classNames("form-section", { error: !valid && !pristine })}>
-                <label htmlFor={valKey}>{label}</label>
+            <div className={classNames("form-section mb-4", { error: !valid && !pristine })}>
+                <label className="mb-0" htmlFor={valKey}>{label}</label>
                 <div className="select-container">
-                    <select id={valKey} onChange={e => this.onChange(e)}>
+                    <select className="pl-1" id={valKey} onChange={e => this.onChange(e)}>
                         {children}
                     </select>
                     <img src="img/arrow-down.svg"/>

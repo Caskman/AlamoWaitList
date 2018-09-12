@@ -40,162 +40,172 @@ class App extends Component {
         return (
             <div className="alamo-app">
                 <ToastContainer position="top-right"/>
-                <div className="first-bg">
-                    <div className="header">
-                        <div className="header-left">
-                            <img src="img/two-color-reversed.svg" width="119px" height="48px"/>
-                        </div>
-                        <div className="buffer"></div>
-                        <div className="header-right">
-                            <div className="header-item">
-                                <a href="#sign-up">Join</a>
-                            </div>
-                            <div className="header-item">
-                                <a href="#faq">FAQ</a>
-                            </div>
-                            <div className="header-item">
-                                <a href="https://drafthouse.com/show/2d-avengers-infinity-war">External Link</a>
+                <div className="first-bg container-fluid pt-3 pb-5">
+                    <div className="row">
+                        <div className="col"></div>
+                        <div className="col-10">
+                        <div className="header d-flex flex-column flex-md-row pb-3 mb-5 align-items-center">
+                            <img className="mr-md-auto" src="img/two-color-reversed.svg" width="119px"/>
+                            <div>
+                                <a className="p-2 text-light" href="#sign-up">Join</a>
+                                <a className="p-2 text-light" href="#faq">FAQ</a>
+                                <a className="p-2 text-light" href="https://drafthouse.com/show/2d-avengers-infinity-war">External Link</a>
                             </div>
                         </div>
-                    </div>
-                    <div className="greeting-section" ref={this.greetingRef}>
-                        <div className="big-greeting">
-                            <div className="small-section">
-                                WELCOME TO THE
+                        <div className="greeting-section row">
+                            <div className="col"></div>
+                            <div className="col-10">
+                                <div className="big-greeting mb-5">
+                                    <div className="small-section text-center">
+                                        WELCOME TO THE
+                                    </div>
+                                    <div className="large-section text-center text-light">
+                                        CUPCAKE IPSUM DOLOR
+                                    </div>
+                                </div>
+                                <div className="description row">
+                                    <div className="description-image col">
+                                        <img src="img/card.svg" width="410px"/>
+                                    </div>
+                                    <div className="description-text col text-light">
+                                        <p>
+                                            Biscuit dessert carrot cake chocolate macaroon sweet cotton candy fruitcake soufflé. Caramels jelly-o halvah soufflé. Chocolate bar jelly jelly beans jelly-o.
+                                        </p>
+                                        <p>
+                                            Carrot cake marshmallow halvah chocolate cake pudding sugar plum.
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="large-section">
-                                CUPCAKE IPSUM DOLOR
-                            </div>
+                            <div className="col"></div>
                         </div>
-                        <div className="description">
-                            <div className="description-image">
-                                <img src="img/card.svg"/>
-                            </div>
-                            <div className="description-text">
-                                <p>
-                                    Biscuit dessert carrot cake chocolate macaroon sweet cotton candy fruitcake soufflé. Caramels jelly-o halvah soufflé. Chocolate bar jelly jelly beans jelly-o.
-                                </p>
-                                <p>
-                                    Carrot cake marshmallow halvah chocolate cake pudding sugar plum.
-                                </p>
-                            </div>
+
                         </div>
+                        <div className="col"></div>
                     </div>
                 </div>
-                <div className="second-bg" id="sign-up">
-                    <div className="signup-section">
-                        <div className="signup-wrapper">
-                            <div className="section-img">
-                                <img src="img/page-1-copy-5.svg"/>
-                            </div>
-                            <div className="signup-content">
-                                <TextInput
-                                    pristine={pristine}
-                                    valKey="firstName"
-                                    onValidationChange={e => this.validationChange(e)}>
-                                    FIRST NAME
-                                </TextInput>
-                                <TextInput
-                                    pristine={pristine}
-                                    valKey="lastName"
-                                    onValidationChange={e => this.validationChange(e)}>
-                                    LAST NAME
-                                </TextInput>
-                                <TextInput
-                                    pristine={pristine}
-                                    valKey="email"
-                                    onValidationChange={e => this.validationChange(e)}>
-                                    VICTORY EMAIL ADDRESS
-                                </TextInput>
-                                <ComboBox 
-                                    label="YOUR LOCAL ALAMO"
-                                    pristine={pristine}
-                                    valKey="localAlamo"
-                                    onValidationChange={e => this.validationChange(e)}>
+                <div className="second-bg container-fluid pb-5" id="sign-up">
+                    <div className="signup-section row">
+                        <div className="col"></div>
+                        <div className="col-5">
+                            <div className="signup-wrapper">
+                                <div className="section-img">
+                                    <img src="img/page-1-copy-5.svg"/>
+                                </div>
+                                <div className="signup-content p-4">
+                                    <TextInput
+                                        pristine={pristine}
+                                        valKey="firstName"
+                                        onValidationChange={e => this.validationChange(e)}>
+                                        FIRST NAME
+                                    </TextInput>
+                                    <TextInput
+                                        pristine={pristine}
+                                        valKey="lastName"
+                                        onValidationChange={e => this.validationChange(e)}>
+                                        LAST NAME
+                                    </TextInput>
+                                    <TextInput
+                                        pristine={pristine}
+                                        valKey="email"
+                                        onValidationChange={e => this.validationChange(e)}>
+                                        VICTORY EMAIL ADDRESS
+                                    </TextInput>
+                                    <ComboBox 
+                                        label="YOUR LOCAL ALAMO"
+                                        pristine={pristine}
+                                        valKey="localAlamo"
+                                        onValidationChange={e => this.validationChange(e)}>
 
-                                    <option value="empty">Select your Alamo</option>
-                                    <option>South Lamar</option>
-                                    <option>Mueller</option>
-                                    <option>Ritz</option>
-                                    <option>Village</option>
-                                    <option>Slaughter Lane</option>
-                                    <option>Lakeline</option>
-                                </ComboBox>
-                                <ComboBox 
-                                    label="MOBILE PHONE TYPE"
-                                    pristine={pristine}
-                                    valKey="mobileType"
-                                    onValidationChange={e => this.validationChange(e)}>
+                                        <option value="empty">Select your Alamo</option>
+                                        <option>South Lamar</option>
+                                        <option>Mueller</option>
+                                        <option>Ritz</option>
+                                        <option>Village</option>
+                                        <option>Slaughter Lane</option>
+                                        <option>Lakeline</option>
+                                    </ComboBox>
+                                    <ComboBox 
+                                        label="MOBILE PHONE TYPE"
+                                        pristine={pristine}
+                                        valKey="mobileType"
+                                        onValidationChange={e => this.validationChange(e)}>
 
-                                    <option value="empty">Select mobile phone type</option>
-                                    <option>Apple iPhone</option>
-                                    <option>Samsung Galaxy</option>
-                                    <option>Google Pixel</option>
-                                </ComboBox>
-                                <div className="form-section submit-container">
-                                    <button onClick={() => this.attemptSubmit()}>
-                                        JOIN WAITLIST
-                                    </button>
+                                        <option value="empty">Select mobile phone type</option>
+                                        <option>Apple iPhone</option>
+                                        <option>Samsung Galaxy</option>
+                                        <option>Google Pixel</option>
+                                    </ComboBox>
+                                    <div className="form-section submit-container text-center">
+                                        <button onClick={() => this.attemptSubmit()}>
+                                            JOIN WAITLIST
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div className="col"></div>
                     </div>
                 </div>
-                <div className="third-bg" id="faq">
-                    <div className="faq-section">
-                        <div className="faq-content">
-                            <div className="section-img">
-                                <img src="img/page-1-copy-4.svg"/>
-                            </div>
-                            <div className="faq-block">
-                                <div className="block-header">
-                                    Caramels donut chocolate bar?
+                <div className="third-bg container-fluid" id="faq">
+                    <div className="faq-section row">
+                        <div className="col"></div>
+                        <div className="col-5">
+                            <div className="faq-content text-light">
+                                <div className="section-img">
+                                    <img src="img/page-1-copy-4.svg"/>
                                 </div>
-                                <div className="block-content">
-                                    <p>
-                                        Cheesecake ice cream marshmallow oat cake cake wafer. Ice cream topping chupa chups candy. Donut powder pastry. Dragée croissant biscuit wafer gummies dessert pudding sweet roll jelly beans.
-                                    </p>
-                                    <p>
-                                        Each week, we will invite people from the waitlist to purchase an Alamo Season Pass. Once you receive your invitation, we will give you two weeks to decide if you want to purchase your pass, and if you decide not to, your place in line will be given to someone else.
-                                    </p>
-                                    <p>
-                                        We will be testing the Alamo Season Pass in a limited number of cities, starting in Yonkers, NY. This waitlist will help us determine which cities we will test in next.
-                                    </p>
+                                <div className="faq-block">
+                                    <div className="block-header">
+                                        Caramels donut chocolate bar?
+                                    </div>
+                                    <div className="block-content">
+                                        <p>
+                                            Cheesecake ice cream marshmallow oat cake cake wafer. Ice cream topping chupa chups candy. Donut powder pastry. Dragée croissant biscuit wafer gummies dessert pudding sweet roll jelly beans.
+                                        </p>
+                                        <p>
+                                            Each week, we will invite people from the waitlist to purchase an Alamo Season Pass. Once you receive your invitation, we will give you two weeks to decide if you want to purchase your pass, and if you decide not to, your place in line will be given to someone else.
+                                        </p>
+                                        <p>
+                                            We will be testing the Alamo Season Pass in a limited number of cities, starting in Yonkers, NY. This waitlist will help us determine which cities we will test in next.
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="faq-block">
-                                <div className="block-header">
-                                    Jelly-o lemon drops tart tiramisu?
+                                <div className="faq-block">
+                                    <div className="block-header">
+                                        Jelly-o lemon drops tart tiramisu?
+                                    </div>
+                                    <div className="block-content">
+                                        <p>
+                                            Cheesecake ice cream marshmallow oat cake cake wafer. Ice cream topping chupa chups candy. Donut powder pastry. Dragée croissant biscuit wafer gummies dessert pudding sweet roll jelly beans.
+                                        </p>
+                                        <p>
+                                            Each week, we will invite people from the waitlist to purchase an Alamo Season Pass. Once you receive your invitation, we will give you two weeks to decide if you want to purchase your pass, and if you decide not to, your place in line will be given to someone else.
+                                        </p>
+                                        <p>
+                                            We will be testing the Alamo Season Pass in a limited number of cities, starting in Yonkers, NY. This waitlist will help us determine which cities we will test in next.
+                                        </p>
+                                    </div>
                                 </div>
-                                <div className="block-content">
-                                    <p>
-                                        Cheesecake ice cream marshmallow oat cake cake wafer. Ice cream topping chupa chups candy. Donut powder pastry. Dragée croissant biscuit wafer gummies dessert pudding sweet roll jelly beans.
-                                    </p>
-                                    <p>
-                                        Each week, we will invite people from the waitlist to purchase an Alamo Season Pass. Once you receive your invitation, we will give you two weeks to decide if you want to purchase your pass, and if you decide not to, your place in line will be given to someone else.
-                                    </p>
-                                    <p>
-                                        We will be testing the Alamo Season Pass in a limited number of cities, starting in Yonkers, NY. This waitlist will help us determine which cities we will test in next.
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="faq-block">
-                                <div className="block-header">
-                                    Soufflé cheesecake cotton candy cake jujubes?
-                                </div>
-                                <div className="block-content">
-                                    <p>
-                                        Cheesecake ice cream marshmallow oat cake cake wafer. Ice cream topping chupa chups candy. Donut powder pastry. Dragée croissant biscuit wafer gummies dessert pudding sweet roll jelly beans.
-                                    </p>
-                                    <p>
-                                        Each week, we will invite people from the waitlist to purchase an Alamo Season Pass. Once you receive your invitation, we will give you two weeks to decide if you want to purchase your pass, and if you decide not to, your place in line will be given to someone else.
-                                    </p>
-                                    <p>
-                                        We will be testing the Alamo Season Pass in a limited number of cities, starting in Yonkers, NY. This waitlist will help us determine which cities we will test in next.
-                                    </p>
+                                <div className="faq-block">
+                                    <div className="block-header">
+                                        Soufflé cheesecake cotton candy cake jujubes?
+                                    </div>
+                                    <div className="block-content">
+                                        <p>
+                                            Cheesecake ice cream marshmallow oat cake cake wafer. Ice cream topping chupa chups candy. Donut powder pastry. Dragée croissant biscuit wafer gummies dessert pudding sweet roll jelly beans.
+                                        </p>
+                                        <p>
+                                            Each week, we will invite people from the waitlist to purchase an Alamo Season Pass. Once you receive your invitation, we will give you two weeks to decide if you want to purchase your pass, and if you decide not to, your place in line will be given to someone else.
+                                        </p>
+                                        <p>
+                                            We will be testing the Alamo Season Pass in a limited number of cities, starting in Yonkers, NY. This waitlist will help us determine which cities we will test in next.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div className="col"></div>
                     </div>
                 </div>
             </div>

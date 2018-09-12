@@ -30,9 +30,9 @@ class TextInput extends Component {
         const { children, pristine, valKey } = this.props
         const { valid } = this.state
         return (
-            <div className={classNames("form-section", { error: !valid && !pristine })}>
-                <label htmlFor={`${valKey}`}>{children}</label>
-                <input type="text" id={`${valKey}`} onChange={e => this.onChange(e)}/>
+            <div className={classNames("form-section mb-4", { error: !valid && !pristine })}>
+                <label className="mb-0" htmlFor={`${valKey}`}>{children}</label>
+                <input className="pl-1" type="text" id={`${valKey}`} onChange={e => this.onChange(e)}/>
             </div>
         )
     }

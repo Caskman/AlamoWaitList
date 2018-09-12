@@ -1,4 +1,26 @@
 
+.text-dark {
+    color: #000000 !important;
+}
+
+.text-light {
+    color: #ffffff !important;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    &.text-dark, &.text-light {
+        text-decoration: none;
+    }
+    &.text-dark:hover {
+        color: #000000 !important;
+    }
+    &.text-light:hover {
+        color: #ffffff !important;
+    }
+}
+
 @mixin text-default {
     font-size: 16px;
     font-weight: normal;
@@ -17,11 +39,6 @@
     letter-spacing: 1px;
 }
 
-@mixin text-dark-background {
-    @include text-default;
-    color: #ffffff;
-}
-
 $white-bg-color: #fafafa;
 $orange-1: #f0b323;
 $error-color: red;
@@ -29,11 +46,6 @@ $error-color: red;
 $page-side-spacing: 8rem;
 $page-top-spacing: 2rem;
 $extra-sidespacing: 8rem;
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
 
 .alamo-app {
     @include text-default;
@@ -60,93 +72,39 @@ a {
     z-index: 1;
     background-image: linear-gradient(120deg, #ff009d, #f5b324);
     @include angled-bottom($white-bg-color, -1);
-    padding: $page-top-spacing $page-side-spacing 0 $page-side-spacing;
 }
 
 .second-bg {
     position: relative;
     z-index: 5;
     background-color: $white-bg-color;
-    padding: 0 ($page-side-spacing + $extra-sidespacing);
     @include angled-bottom(#000000, 6)
 }
 
 .third-bg {
     position: relative;
     z-index: 10;
-    padding-top: 0;
-    padding-right: ($page-side-spacing + $extra-sidespacing);
-    padding-bottom: $page-top-spacing;
-    padding-left: ($page-side-spacing + $extra-sidespacing);
     background-color: #000000;
 }
 
 .header {
-    display: flex;
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-    padding-bottom: 1rem;
-    margin-bottom: 5rem;
-
-    & > .buffer {
-        flex: 2;
-    }
-
-    .header-right .header-item {
-        display: inline-block;
-        padding: 1rem;
-        @include text-dark-background;
-    }
 }
 
 .greeting-section {
-    $more-side-spacing: 5rem;
-    padding: 0 $more-side-spacing 10rem $more-side-spacing;
     .big-greeting {
-        margin-bottom: 2.5rem;
-
-        & > div {
-            text-align: center;
-        }
-
         .small-section {
             @include text-heading;
             color: $orange-1;
         }
         .large-section {
-            @include text-dark-background;
             @include text-heading;
             font-size: 3rem;
-        }
-    }
-    .description {
-        display: flex;
-
-        & > div {
-            flex: 1;
-        }
-        .description-image {
-            padding-right: 3rem;
-        }
-
-        .description-text {
-            @include text-dark-background;
-            flex-shrink: 0;
-        }
-
-        img {
-            width: auto;
         }
     }
 }
 
 @mixin generic-section {
-    $generic-side-spacing: 8rem;
-
-    text-align: center;
-    padding-top: 2rem;
-    padding-left: $generic-side-spacing;
-    padding-right: $generic-side-spacing;
-    padding-bottom: 7.5rem;
     .section-img {
         position: absolute;
         right: 105%;
@@ -159,11 +117,9 @@ a {
         position: relative;
     }
     .signup-content {
-        padding: 2rem;
         border-radius: 3px;
         box-shadow: 0 1px 5px 0 rgba(24, 17, 3, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(24, 17, 3, 0.14);
         .form-section {
-            margin-bottom: 1rem;
             label {
                 display: block;
                 font-size: .62rem;
@@ -172,7 +128,6 @@ a {
                 line-height: 1.6;
                 letter-spacing: 1px;
                 color: #141310;
-                text-align: left;
             }
             @mixin form-element {
                 width: 100%;
@@ -180,7 +135,6 @@ a {
                 border-radius: 3px;
                 height: 30px;
                 font-size: 1rem;
-                padding-left: .2rem;
             }
             input[type="text"] {
                 @include text-default;
@@ -235,7 +189,6 @@ a {
 
 .faq-section {
     @include generic-section;
-    @include text-dark-background;
     .faq-content {
         position: relative;
         .faq-block {
