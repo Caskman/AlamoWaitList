@@ -82,7 +82,7 @@ class App extends Component {
                         <div className="col"></div>
                     </div>
                 </div>
-                <div className="second-bg container-fluid pt-3" id="sign-up">
+                <div className="container-fluid pt-3" id="sign-up">
                     <div className="signup-section row">
                         <div className="col"></div>
                         <div className="col-md-5 col-sm-7 col-12">
@@ -145,7 +145,7 @@ class App extends Component {
                         <div className="col"></div>
                     </div>
                 </div>
-                <div className="third-bg container-fluid" id="faq">
+                <div className="container-fluid" id="faq">
                     <div className="faq-section row">
                         <div className="col"></div>
                         <div className="col-md-5 col-10">
