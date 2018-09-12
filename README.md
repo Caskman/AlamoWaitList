@@ -1,7 +1,5 @@
 
-This is my attempt at the alamo drafthouse interview project.  
-
-HUGE CAVEAT: I was a fool and didn't tackle this with responsiveness in mind from the start.  If I had more time I would redo it with a responsive boilerplate like Bootstrap.  If you don't want to punch yourself, don't view this on anything other than laptop form factors.  
+This is my attempt at the alamo drafthouse interview project.
 
 ## Run Locally
 
