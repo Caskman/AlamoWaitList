@@ -1,25 +1,19 @@
 
-.text-dark {
-    color: #000000 !important;
-}
+// Color definitions
 
-.text-light {
-    color: #ffffff !important;
-}
+$color-white-1: #ffffff;
+$color-white-2: #fafafa;
 
-a {
-    text-decoration: none;
-    color: inherit;
-    &.text-dark, &.text-light {
-        text-decoration: none;
-    }
-    &.text-dark:hover {
-        color: #000000 !important;
-    }
-    &.text-light:hover {
-        color: #ffffff !important;
-    }
-}
+$color-orange-1: #f0b323;
+$color-orange-2: #f5b324;
+
+$color-red-1: #ff0000;
+$color-red-2: #ff009d;
+
+$color-black-1: #000000;
+$color-black-2: #141310;
+
+// Page wide mixins
 
 @mixin text-default {
     font-size: 16px;
@@ -39,24 +33,41 @@ a {
     letter-spacing: 1px;
 }
 
-$white-bg-color: #fafafa;
-$orange-1: #f0b323;
-$error-color: red;
+// Bootstrap override styles
+.text-dark {
+    color: $color-black-1 !important;
+}
 
-$page-side-spacing: 8rem;
-$page-top-spacing: 2rem;
-$extra-sidespacing: 8rem;
+.text-light {
+    color: $color-white-1 !important;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    &.text-dark, &.text-light {
+        text-decoration: none;
+    }
+    &.text-dark:hover {
+        color: $color-black-1 !important;
+    }
+    &.text-light:hover {
+        color: $color-white-1 !important;
+    }
+}
+
+// Media Query Definitions
 
 $xxs-width: 0px;
-$xxs-ratio: 25/60;
-
 $xs-width: 320px;
-$xs-ratio: .5;
-
 $sm-width: 576px;
-$sm-ratio: 3/4;
-
 $md-width: 768px;
+
+// Image sizings
+
+$xxs-ratio: 25/60;
+$xs-ratio: .5;
+$sm-ratio: 3/4;
 $md-ratio: 1;
 
 $header-brand-img-width: 119px;
@@ -132,6 +143,8 @@ $faq-img-width: 81px;
     @include text-default;
 }
 
+// Background color styles
+
 @mixin angled-bottom($color, $z-index) {
     &:after {
         background-color: $color;
@@ -148,11 +161,12 @@ $faq-img-width: 81px;
     }
 }
 
+
 .first-bg {
     position: relative;
     z-index: 1;
-    background-image: linear-gradient(120deg, #ff009d, #f5b324);
-    @include angled-bottom($white-bg-color, -1);
+    background-image: linear-gradient(120deg, $color-red-2, $color-orange-2);
+    @include angled-bottom($color-white-2, -1);
 
     padding-bottom: 5rem;
 }
@@ -160,8 +174,8 @@ $faq-img-width: 81px;
 #sign-up {
     position: relative;
     z-index: 5;
-    background-color: $white-bg-color;
-    @include angled-bottom(#000000, 6);
+    background-color: $color-white-2;
+    @include angled-bottom($color-black-1, 6);
 
     padding-bottom: 7rem;
 }
@@ -169,8 +183,10 @@ $faq-img-width: 81px;
 #faq {
     position: relative;
     z-index: 10;
-    background-color: #000000;
+    background-color: $color-black-1;
 }
+
+// Page Styles
 
 .header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
@@ -180,7 +196,7 @@ $faq-img-width: 81px;
     .big-greeting {
         .small-section {
             @include text-heading;
-            color: $orange-1;
+            color: $color-orange-1;
         }
         .large-section {
             @include text-heading;
@@ -222,7 +238,7 @@ $faq-img-width: 81px;
                 font-weight: bold;
                 line-height: 1.6;
                 letter-spacing: 1px;
-                color: #141310;
+                color: $color-black-2;
             }
             @mixin form-element {
                 width: 100%;
@@ -236,9 +252,9 @@ $faq-img-width: 81px;
                 @include form-element;
             }
             @mixin error-styles {
-                border-color: $error-color;
+                border-color: $color-red-1;
                 &:focus {
-                    outline-color: $error-color;
+                    outline-color: $color-red-1;
                 }
             }
             &.error {
@@ -269,10 +285,10 @@ $faq-img-width: 81px;
             button {
                 position: relative;
                 @include text-default;
-                background-color: $orange-1;
+                background-color: $color-orange-1;
                 font-weight: bold;
                 letter-spacing: 1px;
-                color: #141310;
+                color: $color-black-2;
                 border-radius: 3px;
                 border: none;
                 cursor: pointer;
